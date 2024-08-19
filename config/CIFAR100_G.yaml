@@ -1,0 +1,35 @@
+dataset: cifar-100_g
+root: path_to_cifar100_dataset
+num_classes: 100
+total_session: 5
+num_class_list: [20, 20, 20, 20, 20]
+
+code_length: 32
+valid_length_list: ~ 
+step_size: 2
+
+arch: alexnet
+batch_size: 64
+num_workers: 8
+
+replay: True
+memory: 2000
+
+method: bdih
+lambda_kd: 8
+
+nf: 1
+method_parameters:
+  bdih:
+    max_iters: 100
+    lambda_q: 0.01
+    nf_ratio: 0.25
+
+lr: 3.0e-5
+seed: ~
+topk: ~
+val_every_n_epoch: 20
+save_checkpoint: false
+
+gpu: 2
+project: Baseline
